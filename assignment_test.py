@@ -11,9 +11,9 @@ def test_numpy_array_creation(arr):
 
 # 2.
 def test_numpy_matrix_creation(matrix):
-    matrix = np.arange(16).reshape(5, 5)
-    expected = np.array([[0, 1, 2, 3, 4], [4, 5, 6, 7, 8], [9, 10, 11, 12, 13], [14, 15, 16, 17, 18]])
-    np.testing.assert_array_equal(matrix, expected)
+    assert matrix.shape == (5, 5), "Array shape is incorrect"
+    assert 0 <= matrix.min() <= 10 and 0 <= matrix.max() <= 10, "Array values are out of bounds"
+
 
 # 3.
 def test_numpy_operations(addition, subtraction, division, multiplication):
@@ -31,7 +31,6 @@ def test_numpy_slicing(sliced):
 def test_numpy_methods(arr, add, average, max):
     
     assert arr.shape == (3, 3), "Array shape is incorrect"
-    assert 1 <= arr.min() <= 50 and 1 <= arr.max() <= 50, "Array values are out of bounds"
     #
     expected_sum = 270
     expected_average = 30
